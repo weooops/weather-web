@@ -1,0 +1,79 @@
+.Settings--overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.5);
+  z-index: 1000;
+}
+
+.Settings--content {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  margin-bottom: 0;
+  width: 100%;
+  background-color: #efefef;
+  z-index: 1001;
+}
+@media (min-width: 980px) {
+  .Settings--content {
+    width: 480px;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.Settings--list {
+  width: 100%;
+}
+
+.Settings--language-list {
+  width: 100%;
+}
+
+.Settings--list-item {
+  display: flex;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.Settings--list-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin: 8px;
+  border-radius: 8px;
+  border: 0;
+  padding: 12px;
+  width: 100%;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #262626;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.Settings--list-item-link > span:last-of-type {
+  margin-left: 4px;
+}
+.Settings--list-item-link > .on {
+  color: #ff6075;
+}
+.Settings--list-item-link > img {
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: text-top;
+  box-shadow: 0 0 1px #000000;
+}

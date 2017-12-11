@@ -1,0 +1,128 @@
+/**
+ * NanumSquare
+ */
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: bold;
+  font-weight: 700;
+  src: local('NanumSquare Bold'),
+  local('NanumSquareBold'),
+  local('NanumSquare-Bold'),
+  url('./fonts/NanumSquare/NanumSquare-Bold.woff2') format('woff2'),
+  url('./fonts/NanumSquare/NanumSquare-Bold.woff') format('woff'),
+  url('./fonts/NanumSquare/NanumSquare-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 400;
+  src: local('NanumSquare Regular'),
+  local('NanumSquareRegular'),
+  local('NanumSquare-Regular'),
+  url('./fonts/NanumSquare/NanumSquare-Regular.woff2') format('woff2'),
+  url('./fonts/NanumSquare/NanumSquare-Regular.woff') format('woff'),
+  url('./fonts/NanumSquare/NanumSquare-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: light;
+  font-weight: 300;
+  src: local('NanumSquare Light'),
+  local('NanumSquareLight'),
+  local('NanumSquare-Light'),
+  url('./fonts/NanumSquare/NanumSquare-Light.woff2') format('woff2'),
+  url('./fonts/NanumSquare/NanumSquare-Light.woff') format('woff'),
+  url('./fonts/NanumSquare/NanumSquare-Light.ttf') format('truetype');
+}
+
+/**
+ * Raleway
+ */
+@font-face {
+  font-family: 'Raleway';
+  font-style: bold;
+  font-weight: 700;
+  src: local('Raleway Bold'),
+  local('RalewayBold'),
+  local('Raleway-Bold'),
+  url('./fonts/Raleway/Raleway-Bold.woff2') format('woff2'),
+  url('./fonts/Raleway/Raleway-Bold.woff') format('woff'),
+  url('./fonts/Raleway/Raleway-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway Regular'),
+  local('RalewayRegular'),
+  local('Raleway-Regular'),
+  url('./fonts/Raleway/Raleway-Regular.woff2') format('woff2'),
+  url('./fonts/Raleway/Raleway-Regular.woff') format('woff'),
+  url('./fonts/Raleway/Raleway-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: light;
+  font-weight: 300;
+  src: local('Raleway Light'),
+  local('RalewayLight'),
+  local('Raleway-Light'),
+  url('./fonts/Raleway/Raleway-Light.woff2') format('woff2'),
+  url('./fonts/Raleway/Raleway-Light.woff') format('woff'),
+  url('./fonts/Raleway/Raleway-Light.ttf') format('truetype');
+}
+
+/**
+ * Lato
+ */
+@font-face {
+  font-family: 'Lato';
+  font-style: bold;
+  font-weight: 700;
+  src: local('Lato Bold'),
+  local('LatoBold'),
+  local('Lato-Bold'),
+  url('./fonts/Lato/Lato-Bold.woff2') format('woff2'),
+  url('./fonts/Lato/Lato-Bold.woff') format('woff'),
+  url('./fonts/Lato/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'),
+  local('LatoRegular'),
+  local('Lato-Regular'),
+  url('./fonts/Lato/Lato-Regular.woff2') format('woff2'),
+  url('./fonts/Lato/Lato-Regular.woff') format('woff'),
+  url('./fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: light;
+  font-weight: 300;
+  src: local('Lato Light'),
+  local('LatoLight'),
+  local('Lato-Light'),
+  url('./fonts/Lato/Lato-Light.woff2') format('woff2'),
+  url('./fonts/Lato/Lato-Light.woff') format('woff'),
+  url('./fonts/Lato/Lato-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: thin;
+  font-weight: 100;
+  src: local('Lato Thin'),
+  local('LatoThin'),
+  local('Lato-Thin'),
+  url('./fonts/Lato/Lato-Thin.woff2') format('woff2'),
+  url('./fonts/Lato/Lato-Thin.woff') format('woff'),
+  url('./fonts/Lato/Lato-Thin.ttf') format('truetype');
+}

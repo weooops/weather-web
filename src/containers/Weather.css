@@ -1,0 +1,149 @@
+.Weather {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  width: 100%;
+}
+
+@media (min-width: 980px) {
+  .Weather--main-container {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+.Weather--temp {
+  position: relative;
+  margin: 0;
+  font-family: 'Lato';
+  font-size: 90px;
+  line-height: 90px;
+  font-weight: 100;
+  letter-spacing: -0.32px;
+}
+@media (min-width: 980px) {
+  .Weather--temp {
+    margin-right: 30px;
+  }
+}
+.Weather--temp:after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  display: inline-block;
+  margin-left: 8px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  width: 11px;
+  height: 11px;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.Weather--text {
+  margin: 14px 0 20px 0;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+
+.Weather--forecast {
+  border-radius: 8px;
+  height: 68px;
+  transition: background-color, height 0.3s linear;
+  will-change: background-color, height;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.Weather--forecast.day {
+  background-color: rgba(0, 0, 0, .4);
+}
+.Weather--forecast.night {
+  background-color: rgba(255, 255, 255, .1);
+}
+.Weather--forecast.toggle-2 {
+  height: 136px;
+}
+.Weather--forecast.toggle-3 {
+  height: 204px;
+}
+.Weather--forecast.toggle-4 {
+  height: 272px;
+}
+.Weather--forecast.toggle-5 {
+  height: 340px;
+}
+
+.Weather--forecast-item {
+  display: flex;
+  padding: 10px 30px;
+}
+
+.Weather--forecast-time {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 40%;
+  text-align: left;
+}
+@media (min-width: 980px) {
+  .Weather--forecast-time {
+    width: 15%;
+  }
+}
+
+.Weather--forecast-date {
+  margin-bottom: 2px;
+  font-size: 10px;
+  color: #dee4e6;
+}
+
+.Weather--forecast-icon {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 30%;
+  text-align: center;
+}
+@media (min-width: 980px) {
+  .Weather--forecast-icon {
+    width: 10%;
+  }
+}
+
+.Weather--forecast-temp {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+  width: 30%;
+  font-family: 'Lato';
+  text-align: right;
+}
+@media (min-width: 980px) {
+  .Weather--forecast-temp {
+    justify-content: center;
+    width: 20%;
+  }
+}
+
+.Weather--forecast-low,
+.Weather--forecast-temp-split,
+.Weather--forecast-high {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.Weather--forecast-temp-split {
+  margin: 0 6px;
+}
+
+.Weather--forecast-description {
+  display: none;
+}
+@media (min-width: 980px) {
+  .Weather--forecast-description {
+    display: flex;
+    align-self: center;
+    width: 55%;
+  }
+}

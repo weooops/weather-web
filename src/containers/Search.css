@@ -1,0 +1,98 @@
+.Search {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+  margin-bottom: 40%;
+  padding-bottom: 88px;
+  width: 100%;
+}
+@media (min-width: 980px) {
+  .Search { 
+    align-self: center;
+    margin-bottom: 20%;
+    padding-bottom: 120px;
+  }
+}
+
+.Search--title {
+  margin: 0;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: -0.4px;
+}
+@media (min-width: 980px) {
+  .Search--title {
+    font-size: 22px;
+  }
+}
+
+.Search--place-list {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  overflow: hidden;
+}
+@media (min-width: 980px) {
+  .Search--place-list {
+    top: 70px;
+    left: 50%;
+    right: 50%;
+    width: 60%;
+    transform: translateX(-50%);
+  }
+}
+
+.Search--place-list li {
+  display: flex;
+  border-top: 1px solid #eee;
+  width: 100%;
+  background: #ffffff;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+}
+.Search--place-list li:first-of-type {
+  border: 0;
+}
+
+.Search--place-list li.Searh--empty-item {
+  color: #b2b2b2;
+}
+
+.Search--place-list li > .Search--deep-item {
+  display: flex;
+  justify-content: center;
+  margin: 6px;
+  border-radius: 6px;
+  border: 0;
+  padding: 12px;
+  width: 100%;
+  background: #ffffff;
+  letter-spacing: -0.28px;
+  cursor: pointer;
+  outline: none;
+}
+@media (min-width: 980px) {
+  .Search--place-list li > .Search--deep-item {
+    margin: 8px;
+    padding: 14px;
+  }
+}
+
+.Search--place-list.selected li > .Search--deep-item:focus {
+  background-color: rgba(255, 117, 117, .2);
+}
+.Search--place-list li > .Search--deep-item:focus {
+  background-color: rgba(255, 117, 117, .2);
+}
