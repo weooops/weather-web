@@ -1,102 +1,102 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Switch, Route, Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import { translate } from 'react-i18next'
-import { TweenLite } from "gsap"
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Switch, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { translate } from 'react-i18next';
+import { TweenLite } from "gsap";
 import ReactModal from 'react-modal';
 
-import './App.css'
-import logoSvg from '../images/logo.svg'
-import settingSvg from '../images/setting.svg'
+import './App.css';
+import logoSvg from '../images/logo.svg';
+import settingSvg from '../images/setting.svg';
 
-import * as commonActions from '../actions/common'
-import { getDayOrNight, getLanguage, getWeather, getSelectedImage } from '../actions'
-import weatherCases from '../weatherCases'
-import flagCases from '../flagCases'
+import * as commonActions from '../actions/common';
+import { getDayOrNight, getLanguage, getWeather, getSelectedImage } from '../actions';
+import weatherCases from '../weatherCases';
+import flagCases from '../flagCases';
 
-import PrivateRoute from '../components/PrivateRoute'
-import Weather from './Weather'
-import Location from './Location'
-import Search from './Search'
-import Settings from './Settings'
+import PrivateRoute from '../components/PrivateRoute';
+import Weather from './Weather';
+import Location from './Location';
+import Search from './Search';
+import Settings from './Settings';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = { showModal: false }
-    this.lastImage = ''
+    this.state = { showModal: false };
+    this.lastImage = '';
 
-    this.onOpenModal = this.onOpenModal.bind(this)
-    this.onCloseModal = this.onCloseModal.bind(this)
+    this.onOpenModal = this.onOpenModal.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
   }
 
   componentWillMount() {
-    const { place, weather } = this.props
+    const { place, weather } = this.props;
 
     if (place) {
-      this.props.getWeather(place.woeid)
+      this.props.getWeather(place.woeid);
     }
 
-    let currentTime = new Date()
-    let sunrise = '6:00 am'
-    let sunset = '6:00 pm'
+    let currentTime = new Date();
+    let sunrise = '6:00 am';
+    let sunset = '6:00 pm';
     if (weather) {
-      currentTime = weather.channel.lastBuildDate
-      currentTime = currentTime.substr(0, currentTime.lastIndexOf(' '))
-      sunrise = weather.channel.astronomy.sunrise
-      sunset = weather.channel.astronomy.sunset
+      currentTime = weather.channel.lastBuildDate;
+      currentTime = currentTime.substr(0, currentTime.lastIndexOf(' '));
+      sunrise = weather.channel.astronomy.sunrise;
+      sunset = weather.channel.astronomy.sunset;
     }
-    const mobileOrdesktop = commonActions.getMobileOrdesktop()
-    const season = commonActions.getSeason(currentTime)
-    const dayOrNight = commonActions.getDayOrNight(currentTime, sunrise, sunset)
-    this.lastImage = getSelectedImage() || commonActions.getRandomItem(weatherCases[3200].backgroundImage[mobileOrdesktop][season][dayOrNight])
+    const mobileOrdesktop = commonActions.getMobileOrdesktop();
+    const season = commonActions.getSeason(currentTime);
+    const dayOrNight = commonActions.getDayOrNight(currentTime, sunrise, sunset);
+    this.lastImage = getSelectedImage() || commonActions.getRandomItem(weatherCases[3200].backgroundImage[mobileOrdesktop][season][dayOrNight]);
   }
 
   onOpenModal() {
-    this.setState({ showModal: true })
+    this.setState({ showModal: true });
   }
 
   onCloseModal() {
-    this.setState({ showModal: false })
+    this.setState({ showModal: false });
   }
 
   render() {
-    const { t, location, place, weather } = this.props
-    const language = getLanguage()
-    const dayOrNight = getDayOrNight()
+    const { t, location, place, weather } = this.props;
+    const language = getLanguage();
+    const dayOrNight = getDayOrNight();
 
     if (weather) {
-      const selectedImage = getSelectedImage()
+      const selectedImage = getSelectedImage();
 
       if (this.lastImage !== selectedImage) {
-        const downloadingImage = new Image()
+        const downloadingImage = new Image();
         downloadingImage.onload = (e) => {
-          this.lastImage = selectedImage
+          this.lastImage = selectedImage;
 
-          const afterImgEl = this.refs.backgroundEl.querySelector('img:first-of-type')
+          const afterImgEl = this.refs.backgroundEl.querySelector('img:first-of-type');
           TweenLite.fromTo(
             afterImgEl,
             3,
             { opacity: 1 },
             { opacity: 0, onComplete: () => {
-              this.refs.backgroundEl.removeChild(afterImgEl)
+              this.refs.backgroundEl.removeChild(afterImgEl);
             }}
-          )
+          );
 
-          const beforeImgEl = document.createElement('img')
-          beforeImgEl.src = e.target.src
-          this.refs.backgroundEl.insertBefore(beforeImgEl, this.refs.backgroundEl.childNodes[0])
+          const beforeImgEl = document.createElement('img');
+          beforeImgEl.src = e.target.src;
+          this.refs.backgroundEl.insertBefore(beforeImgEl, this.refs.backgroundEl.childNodes[0]);
           TweenLite.fromTo(
             beforeImgEl,
             3,
             { opacity: 0 },
             { opacity: 1 }
-          )
+          );
         }
-        downloadingImage.src = `../images/background/${selectedImage}.jpg`
+        downloadingImage.src = `../images/background/${selectedImage}.jpg`;
       }
     }
 
@@ -119,11 +119,18 @@ class App extends Component {
                   ? (
                     <Link to="/location" className="App--header-left-link">
                       {place ? (
-                        <img src={`../images/flags/${flagCases[place.country.code]}.svg`} alt={place.country.content} width="24" height="24" />
+                        <img src={`../images/flags/${flagCases[place.country.code]}.svg`} alt={place.country.content} width="16" height="16" />
                       ) : null}
                       {place ? <span>{`${place.locality1.content}, ${place.country.content}`}</span> : null}
                     </Link>
-                  ) : null}
+                  ) : (
+                    <Link to="/" className="App--header-left-link">
+                      {place ? (
+                        <img src={logoSvg} className="App--header-left-link-logo" alt="logo" width="12" height="8" />
+                      ) : null}
+                      {place ? <span>위치를 알려주세요</span> : null}
+                    </Link>
+                  )}
                   {(location.pathname === '/')
                   ? (
                     <button className="App--header-right-link" onClick={this.onOpenModal}>
@@ -139,7 +146,7 @@ class App extends Component {
                     <Route path="/location" component={Location} />
                     <Route path="/search" component={Search} />
                     <Route component={() => (
-                      <h3>{t('notFoundPage')}</h3>
+                      <h3 style={{paddingTop: '20px'}}>{t('notFoundPage')}</h3>
                     )}/>
                   </Switch>
                 </div>
@@ -169,15 +176,15 @@ App.propTypes = {
   weather: PropTypes.object,
   place: PropTypes.object,
   getWeather: PropTypes.func
-}
+};
 
 App.defaultProps = {
   weather: null,
   place: null,
   getWeather: () => console.error('getWeather is not defined')
-}
+};
 
-App = translate()(App)
+App = translate()(App);
 
 App = connect(
   ({weather, place}) => ({
@@ -187,6 +194,6 @@ App = connect(
   {
     getWeather
   }
-)(App)
+)(App);
 
-export default App
+export default App;

@@ -1,47 +1,47 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { translate } from 'react-i18next'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
-import './Location.css'
-import locationSvg from '../images/location.svg'
+import './Location.css';
+import locationSvg from '../images/location.svg';
 
-import { getWeather, createPlaceWithPosition } from '../actions'
+import { getWeather, createPlaceWithPosition } from '../actions';
 
 class Location extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.onCurrentPosition = this.onCurrentPosition.bind(this)
+    this.onCurrentPosition = this.onCurrentPosition.bind(this);
   }
 
   onCurrentPosition() {
-    const { t } = this.props
+    const { t } = this.props;
 
     navigator.geolocation.getCurrentPosition(
       position => {
         this.props.createPlaceWithPosition(position.coords.latitude, position.coords.longitude, (place) => {
           if (!place) {
-            alert(t('locationPlaceNotFound'))
+            alert(t('locationPlaceNotFound'));
           } else {
             this.props.getWeather(place.woeid, (weather) => {
               if (weather.count > 0) {
-                this.props.history.push('/')
+                this.props.history.push('/');
               } else {
-                alert(t('locationWeatherNotFound'))
+                alert(t('locationWeatherNotFound'));
               }
-            })
+            });
           }
-        })
+        });
       },
       error => {
-        alert(t('locationPositionNotFound'))
-      })
+        alert(t('locationPositionNotFound'));
+      });
   }
 
   render() {
-    const { t, place } = this.props
+    const { t, place } = this.props;
 
     return (
       <div className="Location">
@@ -65,15 +65,15 @@ Location.propTypes = {
   place: PropTypes.object,
   getWeather: PropTypes.func,
   createPlaceWithPosition: PropTypes.func
-}
+};
 
 Location.defaultProps = {
   place: null,
   getWeather: () => console.error('getWeather is not defined'),
   createPlaceWithPosition: () => console.error('createPlaceWithPosition is not defined')
-}
+};
 
-Location = translate()(Location)
+Location = translate()(Location);
 
 Location = connect(
   ({place}) => ({
@@ -83,6 +83,6 @@ Location = connect(
     getWeather,
     createPlaceWithPosition
   }
-)(Location)
+)(Location);
 
-export default Location
+export default Location;

@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import './SearchInput.css'
+import './SearchInput.css';
 
 class SearchInput extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = { term: '' }
+    this.state = { term: '' };
   }
 
   onInputChange(term) {
-    this.setState({ term })
-    this.props.onSearchTermChange(term)
+    this.setState({ term });
+    this.props.onSearchTermChange(term);
   }
 
   render() {
@@ -26,18 +26,18 @@ class SearchInput extends Component {
         value={this.state.term}
         onChange={event => this.onInputChange(event.target.value)}
       />
-    )
+    );
   }
 }
 
 SearchInput.propTypes = {
   onSearchTermChange: PropTypes.func,
   onInputKeyDown: PropTypes.func
-}
+};
 
 SearchInput.defaultProps = {
   onSearchTermChange: () => console.error('onSearchTermChange is not defined'),
   onInputKeyDown: () => console.error('onInputKeyDown is not defined')
-}
+};
 
-export default SearchInput
+export default SearchInput;

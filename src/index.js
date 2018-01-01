@@ -1,24 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import ReduxThunk from 'redux-thunk'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 
-import 'normalize.css'
-import './fonts.css'
-import './index.css'
-import { getPlace, getLocalWeather } from './actions'
-import registerServiceWorker from './registerServiceWorker'
-import rootReducer from './reducers'
-import './i18n'
+import 'normalize.css';
+import './fonts.css';
+import './index.css';
+import { getPlace, getLocalWeather } from './actions';
+import registerServiceWorker from './registerServiceWorker';
+import rootReducer from './reducers';
+import './i18n';
 
-import App from './containers/App'
+import App from './containers/App';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore)
-const store = createStoreWithMiddleware(rootReducer)
-store.dispatch(getPlace())
-store.dispatch(getLocalWeather())
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
+const store = createStoreWithMiddleware(rootReducer);
+store.dispatch(getPlace());
+store.dispatch(getLocalWeather());
 
 ReactDOM.render(
   <Provider store={store}>
@@ -26,5 +26,5 @@ ReactDOM.render(
       <Route path="/" component={App} />
     </BrowserRouter>
   </Provider>
-, document.getElementById('root'))
-registerServiceWorker()
+, document.getElementById('root'));
+registerServiceWorker();

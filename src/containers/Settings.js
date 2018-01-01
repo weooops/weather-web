@@ -1,31 +1,31 @@
-import _ from 'lodash'
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { translate } from 'react-i18next'
+import _ from 'lodash';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 
-import './Settings.css'
-import flagCases from '../flagCases'
-import * as commonActions from '../actions/common'
-import { getTemperature, setTemperature, getLanguage, getWeather, changePlace } from '../actions'
+import './Settings.css';
+import flagCases from '../flagCases';
+import * as commonActions from '../actions/common';
+import { getTemperature, setTemperature, getLanguage, getWeather, changePlace } from '../actions';
 
 class Settings extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = { languageModal: false }
+    this.state = { languageModal: false };
 
-    this.onKeyDown = this.onKeyDown.bind(this)
-    this.onCloseModal = this.onCloseModal.bind(this)
-    this.onToggleTemperature = this.onToggleTemperature.bind(this)
-    this.onChangeLanguageModal = this.onChangeLanguageModal.bind(this)
-    this.onSelectLanguage = this.onSelectLanguage.bind(this)
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
+    this.onToggleTemperature = this.onToggleTemperature.bind(this);
+    this.onChangeLanguageModal = this.onChangeLanguageModal.bind(this);
+    this.onSelectLanguage = this.onSelectLanguage.bind(this);
   }
 
   componentDidMount() {
-    ReactDOM.findDOMNode(this.refs.modalFirstEl).focus()
+    ReactDOM.findDOMNode(this.refs.modalFirstEl).focus();
 
     window.addEventListener('keydown', this.onKeyDown);
   }
@@ -35,49 +35,49 @@ class Settings extends Component {
   }
   
   onKeyDown(e) {
-    e.keyCode === 27 && this.onCloseModal()
+    e.keyCode === 27 && this.onCloseModal();
   }
 
   onCloseModal() {
-    this.props.onCloseModal()
+    this.props.onCloseModal();
   }
 
   onToggleTemperature(temperature) {
     if (temperature === 'C') {
-      setTemperature('F')
+      setTemperature('F');
     } else {
-      setTemperature('C')
+      setTemperature('C');
     }
 
-    const { place } = this.props
+    const { place } = this.props;
     if (place) {
-      this.props.getWeather(place.woeid)
+      this.props.getWeather(place.woeid);
     }
 
-    this.onCloseModal()
+    this.onCloseModal();
   }
 
   onChangeLanguageModal() {
     this.setState({
       languageModal: true
-    })
+    });
 
     setTimeout(() => {
-      this.refs.languageModalFirstEl && ReactDOM.findDOMNode(this.refs.languageModalFirstEl).focus()
+      this.refs.languageModalFirstEl && ReactDOM.findDOMNode(this.refs.languageModalFirstEl).focus();
     }, 25);
   }
 
   onSelectLanguage(language) {
-    const { i18n, place } = this.props
+    const { i18n, place } = this.props;
 
-    i18n.changeLanguage(language)
-    commonActions.setHTMLLang(language)
-    this.props.changePlace(place)
-    this.onCloseModal()
+    i18n.changeLanguage(language);
+    commonActions.setHTMLLang(language);
+    this.props.changePlace(place);
+    this.onCloseModal();
   }
 
   renderLanguageModal(language) {
-    const { t } = this.props
+    const { t } = this.props;
 
     return (
       <ul className="Settings-list">
@@ -109,11 +109,11 @@ class Settings extends Component {
           </button>
         </li>
       </ul>
-    )
+    );
   }
 
   renderModal(temperature) {
-    const { t } = this.props
+    const { t } = this.props;
 
     return (
       <ul className="Settings--list">
@@ -147,19 +147,19 @@ class Settings extends Component {
           </button>
         </li>
       </ul>
-    )
+    );
   }
 
   render() {
-    const { languageModal } = this.state
-    const language = getLanguage()
-    const temperature = getTemperature()
+    const { languageModal } = this.state;
+    const language = getLanguage();
+    const temperature = getTemperature();
 
     return (
       <div ref="settingListEl">
         {languageModal ? this.renderLanguageModal(language) : this.renderModal(temperature)}
       </div>
-    )
+    );
   }
 }
 
@@ -169,7 +169,7 @@ Settings.propTypes = {
   changePlace: PropTypes.func,
 
   onCloseModal: PropTypes.func
-}
+};
 
 Settings.defaultProps = {
   place: null,
@@ -177,9 +177,9 @@ Settings.defaultProps = {
   changePlace: () => console.error('changePlace is not defined'),
 
   onCloseModal: () => console.error('onCloseModal is not defined')
-}
+};
 
-Settings = translate()(Settings)
+Settings = translate()(Settings);
 
 Settings = connect(
   ({place}) => ({
@@ -189,6 +189,6 @@ Settings = connect(
     getWeather,
     changePlace
   }
-)(Settings)
+)(Settings);
 
-export default Settings
+export default Settings;

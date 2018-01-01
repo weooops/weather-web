@@ -223,6 +223,6 @@ const flagCases = {
   'YE': 'yemen',
   'ZM': 'zambia',
   'ZW': 'zimbabwe',
-}
+};
 
-export default flagCases
+export default flagCases;

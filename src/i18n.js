@@ -1,26 +1,26 @@
-import _ from 'lodash'
-import i18n from 'i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
-import { reactI18nextModule } from 'react-i18next'
-import * as commonActions from './actions/common'
-import { getLanguage, setLanguage, getTemperature, setTemperature } from './actions'
+import _ from 'lodash';
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { reactI18nextModule } from 'react-i18next';
+import * as commonActions from './actions/common';
+import { getLanguage, setLanguage, getTemperature, setTemperature } from './actions';
 
-let language = getLanguage()
+let language = getLanguage();
 if (!language) {
-  language = navigator.language
-  setLanguage(language)
-  commonActions.setHTMLLang(language)
+  language = navigator.language;
+  setLanguage(language);
+  commonActions.setHTMLLang(language);
 
-  let temperature = getTemperature()
+  let temperature = getTemperature();
   if (!temperature) {
     if (_.includes(language, 'en')) {
-      setTemperature('F')
+      setTemperature('F');
     } else {
-      setTemperature('C')
+      setTemperature('C');
     }
   }
 } else {
-  commonActions.setHTMLLang(language)
+  commonActions.setHTMLLang(language);
 }
 
 i18n
@@ -458,7 +458,6 @@ i18n
         }
       }
     }
-  })
+  });
 
-
-export default i18n
+export default i18n;
