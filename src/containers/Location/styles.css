@@ -76,11 +76,13 @@
 .Location--link {
   position: absolute;
   top: 146px;
+  left: 50%;
   font-size: 14px;
   letter-spacing: -0.28px;
   text-decoration: underline;
   color: #ffffff;
   text-align: center;
+  transform: translateX(-50%);
 }
 @media (min-width: 980px) {
   .Location--link {
