@@ -8,6 +8,11 @@
   padding-bottom: 88px;
   width: 100%;
 }
+@media only screen and (orientation: landscape) {
+  .Location {
+    margin-bottom: 10%;
+  }
+}
 @media (min-width: 980px) {
   .Location {
     margin-bottom: 20%;

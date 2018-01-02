@@ -12,6 +12,7 @@
 @media (min-width: 980px) {
   .Search { 
     align-self: center;
+    margin-top: 0;
     margin-bottom: 20%;
     padding-bottom: 120px;
   }
