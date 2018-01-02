@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import './Search.css';
+import './styles.css';
 
-import { getWeather } from '../actions/weather';
-import { searchPlaces } from '../actions/places';
-import { createPlace } from '../actions/place';
-import SearchInput from '../components/SearchInput';
+import { getWeather } from '../../actions/weather';
+import { searchPlaces } from '../../actions/places';
+import { createPlace } from '../../actions/place';
+import SearchInput from '../../components/SearchInput';
 
 class Search extends Component {
   constructor(props) {

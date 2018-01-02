@@ -7,21 +7,21 @@ import { translate } from 'react-i18next';
 import { TweenLite } from "gsap";
 import ReactModal from 'react-modal';
 
-import './App.css';
-import logoSvg from '../assets/images/logo.svg';
-import settingSvg from '../assets/images/setting.svg';
+import './styles.css';
+import logoSvg from '../../assets/images/logo.svg';
+import settingSvg from '../../assets/images/setting.svg';
 
-import * as commonActions from '../utils/common';
-import { getDayOrNight, getLanguage, getSelectedImage } from '../actions';
-import { getWeather } from '../actions/weather';
-import weatherCases from '../weatherCases';
-import flagCases from '../flagCases';
+import * as commonActions from '../../utils/common';
+import { getDayOrNight, getLanguage, getSelectedImage } from '../../actions';
+import { getWeather } from '../../actions/weather';
+import weatherCases from '../../utils/weatherCases';
+import flagCases from '../../utils/flagCases';
 
-import PrivateRoute from '../components/PrivateRoute';
-import Weather from './Weather';
-import Location from './Location';
-import Search from './Search';
-import Settings from './Settings';
+import PrivateRoute from '../../hoc/PrivateRoute';
+import Weather from '../Weather';
+import Location from '../Location';
+import Search from '../Search';
+import Settings from '../Settings';
 
 class App extends Component {
   constructor(props) {

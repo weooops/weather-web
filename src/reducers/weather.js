@@ -1,4 +1,4 @@
-import weatherCases from '../weatherCases';
+import weatherCases from '../utils/weatherCases';
 import * as commonActions from '../utils/common';
 
 import { FETCH_WEATHER, GET_LOCAL_WEATHER } from '../actions/weather';

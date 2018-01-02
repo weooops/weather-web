@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import moment from 'moment';
 
-import './Weather.css';
+import './styles.css';
 
-import * as commonActions from '../utils/common';
-import { getLanguage } from '../actions';
+import * as commonActions from '../../utils/common';
+import { getLanguage } from '../../actions';
 
 class Weather extends Component {
   constructor(props) {

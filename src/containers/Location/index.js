@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 
-import './Location.css';
-import locationSvg from '../assets/images/location.svg';
+import './styles.css';
+import locationSvg from '../../assets/images/location.svg';
 
-import { getWeather } from '../actions/weather'
-import { createPlaceWithPosition } from '../actions/place';
+import { getWeather } from '../../actions/weather'
+import { createPlaceWithPosition } from '../../actions/place';
 
 class Location extends Component {
   constructor(props) {
