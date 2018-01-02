@@ -129,7 +129,7 @@ class App extends Component {
                       {place ? (
                         <img src={logoSvg} className="App--header-left-link-logo" alt="logo" width="12" height="8" />
                       ) : null}
-                      {place ? <span>위치를 알려주세요</span> : null}
+                      {place ? <span>{t('appTellMeLocation')}</span> : null}
                     </Link>
                   )}
                   {(location.pathname === '/')

@@ -12,7 +12,7 @@ import { getLocalWeather } from './actions/weather';
 import { getPlace } from './actions/place';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers';
-import './i18n';
+import './utils/i18n';
 
 import App from './containers/App';
 

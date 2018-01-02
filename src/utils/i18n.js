@@ -2,8 +2,8 @@ import _ from 'lodash';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { reactI18nextModule } from 'react-i18next';
-import * as commonActions from './utils/common';
-import { getLanguage, setLanguage, getTemperature, setTemperature } from './actions';
+import * as commonActions from './common';
+import { getLanguage, setLanguage, getTemperature, setTemperature } from '../actions';
 
 let language = getLanguage();
 if (!language) {
