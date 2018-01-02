@@ -2,15 +2,21 @@ import _ from 'lodash';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { reactI18nextModule } from 'react-i18next';
-import * as commonActions from './actions/common';
+import * as commonActions from './utils/common';
 import { getLanguage, setLanguage, getTemperature, setTemperature } from './actions';
 
 let language = getLanguage();
 if (!language) {
   language = navigator.language;
+
+  // 기본 언어를 설정한다.
   setLanguage(language);
+
+  // <html lang="ko">와 같이 문서 언어를 설정한다.
   commonActions.setHTMLLang(language);
 
+  // 영어일 경우 기본적으로 "화씨 온도"로 설정된다.
+  // 그 외 언어일 경우는 "섭씨 온도"로 설정된다.
   let temperature = getTemperature();
   if (!temperature) {
     if (_.includes(language, 'en')) {
@@ -20,6 +26,7 @@ if (!language) {
     }
   }
 } else {
+  // 로컬저장소에 지정된 언어로 문서 타입을 지정한다.
   commonActions.setHTMLLang(language);
 }
 

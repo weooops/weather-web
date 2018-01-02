@@ -8,11 +8,12 @@ import { TweenLite } from "gsap";
 import ReactModal from 'react-modal';
 
 import './App.css';
-import logoSvg from '../images/logo.svg';
-import settingSvg from '../images/setting.svg';
+import logoSvg from '../assets/images/logo.svg';
+import settingSvg from '../assets/images/setting.svg';
 
-import * as commonActions from '../actions/common';
-import { getDayOrNight, getLanguage, getWeather, getSelectedImage } from '../actions';
+import * as commonActions from '../utils/common';
+import { getDayOrNight, getLanguage, getSelectedImage } from '../actions';
+import { getWeather } from '../actions/weather';
 import weatherCases from '../weatherCases';
 import flagCases from '../flagCases';
 

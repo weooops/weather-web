@@ -7,7 +7,7 @@ import moment from 'moment';
 
 import './Weather.css';
 
-import * as commonActions from '../actions/common';
+import * as commonActions from '../utils/common';
 import { getLanguage } from '../actions';
 
 class Weather extends Component {

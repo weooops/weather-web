@@ -8,8 +8,10 @@ import { translate } from 'react-i18next';
 
 import './Settings.css';
 import flagCases from '../flagCases';
-import * as commonActions from '../actions/common';
-import { getTemperature, setTemperature, getLanguage, getWeather, changePlace } from '../actions';
+import * as commonActions from '../utils/common';
+import { getTemperature, setTemperature, getLanguage } from '../actions';
+import { getWeather } from '../actions/weather';
+import { changePlace } from '../actions/place';
 
 class Settings extends Component {
   constructor(props) {
