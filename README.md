@@ -21,5 +21,6 @@
 - YQL API
 
 ### AWS
+- Route 53
 - S3
 - Cloudfront
