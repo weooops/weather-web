@@ -4,13 +4,9 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 class SearchInput extends Component {
-  constructor(props) {
-    super(props);
+  state = { term: '' };
 
-    this.state = { term: '' };
-  }
-
-  onInputChange(term) {
+  onInputChange = (term) => {
     this.setState({ term });
     this.props.onSearchTermChange(term);
   }

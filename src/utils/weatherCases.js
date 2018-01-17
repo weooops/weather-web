@@ -1966,6 +1966,6 @@ const weatherCases = {
       }
     }
   }
-}
+};
 
-export default weatherCases
+export default weatherCases;

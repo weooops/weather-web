@@ -1,5 +1,5 @@
 /**
- * 공통 코드를 관리한다.
+ * 공통 코드를 관리
  */
 
 import MobileDetect from 'mobile-detect';
@@ -7,7 +7,7 @@ import moment from 'moment';
 
 /**
  * HTML 문서 언어를 설정한다.
- * @param {string} language 
+ * @param {string} language 언어
  */
 export function setHTMLLang(language) {
   document.documentElement.lang = language;
@@ -34,7 +34,7 @@ export function getMobileOrdesktop() {
 
 /**
  * 가져올 날짜의 계절을 확인한다.
- * @param {Date} date 
+ * @param {Date} date 날짜
  */
 export function getSeason(date) {
   const month = moment(new Date(date)).format('MM');
@@ -63,9 +63,9 @@ export function getSeason(date) {
 
 /**
  * 날짜 API의 일몰, 일출 기준을 적용하여 낮과 밤을 구분한다.
- * @param {Date} date 
- * @param {string} sunrise 
- * @param {string} sunset 
+ * @param {Date} date 날짜
+ * @param {string} sunrise 일출
+ * @param {string} sunset 일몰
  */
 export function getDayOrNight(date, sunrise = '6:00 am', sunset = '6:00 pm') {
   const time = moment(new Date(date));
@@ -94,7 +94,7 @@ export function getDayOrNight(date, sunrise = '6:00 am', sunset = '6:00 pm') {
 
 /**
  * 가져온 배열에서 랜덤하게 배열 아이템을 선택한다.
- * @param {Array} arr 
+ * @param {Array} arr 배열
  */
 export function getRandomItem(arr) {
   return arr[Math.round(Math.random() * arr.length)];

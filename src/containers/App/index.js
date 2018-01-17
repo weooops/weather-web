@@ -24,15 +24,8 @@ import Search from '../Search';
 import Settings from '../Settings';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { showModal: false };
-    this.lastImage = '';
-
-    this.onOpenModal = this.onOpenModal.bind(this);
-    this.onCloseModal = this.onCloseModal.bind(this);
-  }
+  state = { showModal: false };
+  lastImage = '';
 
   componentWillMount() {
     const { place, weather } = this.props;
@@ -56,11 +49,11 @@ class App extends Component {
     this.lastImage = getSelectedImage() || commonActions.getRandomItem(weatherCases[3200].backgroundImage[mobileOrdesktop][season][dayOrNight]);
   }
 
-  onOpenModal() {
+  onOpenModal = () => {
     this.setState({ showModal: true });
   }
 
-  onCloseModal() {
+  onCloseModal = () => {
     this.setState({ showModal: false });
   }
 
@@ -188,7 +181,7 @@ App.defaultProps = {
 App = translate()(App);
 
 App = connect(
-  ({weather, place}) => ({
+  ({ weather, place }) => ({
     weather,
     place
   }),

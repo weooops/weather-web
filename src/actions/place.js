@@ -21,7 +21,7 @@ export function getPlace() {
 /**
  * 도시를 변경한다.
  * 언어가 바꼇을 시 변경된 언어 타입으로 도시를 다시 가져오기 위함이다.
- * @param {*} place 도시 오브젝트
+ * @param {Object} place 도시 오브젝트
  */
 export function changePlace(place) {
   return dispatch => {
@@ -47,8 +47,8 @@ export function changePlace(place) {
 
 /**
  * 검색 한 도시중에 선택할 경우
- * @param {*} place 도시 오브젝트
- * @param {fn} cb 
+ * @param {Object} place 도시 오브젝트
+ * @param {Function} cb 콜백 함수
  */
 export function selectPlace(place, cb = initCallback) {
   return dispatch => {
@@ -62,8 +62,8 @@ export function selectPlace(place, cb = initCallback) {
 
 /**
  * 도시를 셋팅한다.
- * @param {*} place 도시 오브젝트
- * @param {fn} cb 
+ * @param {Object} place 도시 오브젝트
+ * @param {Function} cb 콜백 함수
  */
 export function createPlace(place, cb = initCallback) {
   return dispatch => {
@@ -77,9 +77,9 @@ export function createPlace(place, cb = initCallback) {
 
 /**
  * GPS값을 가지고 도시를 조회하여 설정한다.
- * @param {*} lat 위도
- * @param {*} lng 경도
- * @param {fn} cb 
+ * @param {number} lat 위도
+ * @param {number} lng 경도
+ * @param {Function} cb 콜백 함수
  */
 export function createPlaceWithPosition(lat, lng, cb = initCallback) {
   const language = actions.getLanguage();

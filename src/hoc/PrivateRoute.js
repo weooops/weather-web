@@ -25,7 +25,7 @@ PrivateRoute.defaultProps = {
 };
 
 export default connect(
-  ({place}) => ({
+  ({ place }) => ({
     place
   })
 )(PrivateRoute);

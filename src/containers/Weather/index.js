@@ -11,18 +11,10 @@ import * as commonActions from '../../utils/common';
 import { getLanguage } from '../../actions';
 
 class Weather extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      forecastToggle: false,
-      toggleName: 'toggle-5'
-    };
-
-    this.onResize = this.onResize.bind(this);
-    this.onForecastToggle = this.onForecastToggle.bind(this);
-    this.getForcastTomorrow = this.getForcastTomorrow.bind(this);
-  }
+  state = {
+    forecastToggle: false,
+    toggleName: 'toggle-5'
+  };
 
   componentDidMount() {
     this.onChangeToggleName();
@@ -33,11 +25,11 @@ class Weather extends Component {
     window.removeEventListener('resize', this.onResize);
   }
 
-  onResize() {
+  onResize = () => {
     this.onChangeToggleName();
   }
 
-  onChangeToggleName() {
+  onChangeToggleName = () => {
     const deviceHeight = document.documentElement.clientHeight;
     if (deviceHeight < 500) {
       this.setState({ toggleName: '' });
@@ -48,7 +40,7 @@ class Weather extends Component {
     }
   }
 
-  getForcastDate(date, language) {
+  getForcastDate = (date, language) => {
     if (_.includes(language, 'ko')) {
       return moment(new Date(date)).format('YYYY년 MM월 DD일');
     } else if (_.includes(language, 'ja')) {
@@ -58,7 +50,7 @@ class Weather extends Component {
     }
   }
 
-  getForcastTomorrow(date, index) {
+  getForcastTomorrow = (date, index) => {
     const { t } = this.props;
     const day = new Date(date).getDay();
 
@@ -69,7 +61,7 @@ class Weather extends Component {
     }
   }
 
-  onForecastToggle() {
+  onForecastToggle = () => {
     this.setState({
       forecastToggle: !this.state.forecastToggle
     });
@@ -141,7 +133,7 @@ Weather.defaultProps = {
 Weather = translate()(Weather);
 
 Weather = connect(
-  ({weather}) => ({
+  ({ weather }) => ({
     weather
   })
 )(Weather);

@@ -11,13 +11,7 @@ import { getWeather } from '../../actions/weather'
 import { createPlaceWithPosition } from '../../actions/place';
 
 class Location extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onCurrentPosition = this.onCurrentPosition.bind(this);
-  }
-
-  onCurrentPosition() {
+  onCurrentPosition = () => {
     const { t } = this.props;
 
     navigator.geolocation.getCurrentPosition(

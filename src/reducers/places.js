@@ -2,8 +2,8 @@ import { SEARCH_PLACES } from '../actions/places';
 
 /**
  * 도시 리스트 Reducer
- * @param {*} state 
- * @param {*} action 
+ * @param {State} state redux state 데이터
+ * @param {Action} action redux action 데이터
  */
 const initPlacesState = [];
 function places(state = initPlacesState, action) {

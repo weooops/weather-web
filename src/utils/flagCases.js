@@ -1,6 +1,7 @@
 /**
  * 국가 케이스 설정
  */
+
 const flagCases = {
   'AF': 'afghanistan',
   'AL': 'albania',

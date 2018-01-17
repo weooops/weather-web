@@ -11,9 +11,9 @@ let lastId = null;
 
 /**
  * 날씨 데이터를 가져온다.
- * @param {*} dispatch 
+ * @param {Dispath} dispatch getWeather()의 dispatch
  * @param {string} id 도시 아이디
- * @param {fn} cb 
+ * @param {Function} cb 콜백 함수
  */
 function fetchWeather(dispatch, id, cb = initCallback) {
   const temperature = actions.getTemperature();
@@ -33,7 +33,7 @@ function fetchWeather(dispatch, id, cb = initCallback) {
 /**
  * 1분마다 날씨 데이터를 가져온다.
  * @param {string} id 도시 아이디
- * @param {fn} cb 
+ * @param {Function} cb 콜백 함수
  */
 export function getWeather(id, cb = initCallback) {
   // 1분마다 날씨 데이터를 가져오도록 설정하였다.

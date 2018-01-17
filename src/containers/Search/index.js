@@ -12,18 +12,8 @@ import { createPlace } from '../../actions/place';
 import SearchInput from '../../components/SearchInput';
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { onSearch: false };
-    this.selectPosition = 0;
-
-    this.onMouseOver = this.onMouseOver.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-    this.onKeyUp = this.onKeyUp.bind(this);
-    this.onPlaceSearch = this.onPlaceSearch.bind(this);
-    this.onSelectPlace = this.onSelectPlace.bind(this);
-  }
+  state = { onSearch: false };
+  selectPosition = 0;
 
   componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown);
@@ -35,7 +25,7 @@ class Search extends Component {
     window.removeEventListener('keyup', this.onKeyUp);
   }
 
-  onKeyDown(e) {
+  onKeyDown = (e) => {
     const { places } = this.props;
     const placeListItems = this.refs.placeList.querySelectorAll('.Search--place-item');
 
@@ -56,7 +46,7 @@ class Search extends Component {
     }
   }
 
-  onKeyUp(e) {
+  onKeyUp = (e) => {
     const { places } = this.props;
 
     if (this.state.onSearch && places.length > 0) {
@@ -72,7 +62,7 @@ class Search extends Component {
     }
   }
 
-  onPlaceSearch(term) {
+  onPlaceSearch = (term) => {
     if (term) {
       this.props.searchPlaces(term, () => {
         this.setState({ onSearch: true });
@@ -84,7 +74,7 @@ class Search extends Component {
     this.selectPosition = 0;
   }
 
-  onSelectPlace(place) {
+  onSelectPlace = (place) => {
     this.props.createPlace(place, () => {
       this.props.getWeather(place.woeid, () => {
         this.props.history.push('/');
@@ -92,7 +82,7 @@ class Search extends Component {
     });
   }
 
-  onMouseOver(e) {
+  onMouseOver = (e) => {
     let placeListItems = this.refs.placeList.querySelectorAll('.Search--place-item');
 
     placeListItems.forEach((item, i) => {
@@ -103,7 +93,7 @@ class Search extends Component {
     });
   }
 
-  renderPlaces() {
+  renderPlaces = () => {
     const { t, places } = this.props;
 
     if (places.length > 0) {
@@ -172,7 +162,7 @@ Search.defaultProps = {
 Search = translate()(Search);
 
 Search = connect(
-  ({places}) => ({
+  ({ places }) => ({
     places
   }),
   {

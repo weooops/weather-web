@@ -9,7 +9,7 @@ const initCallback = () => {};
 /**
  * 도시를 검색한다.
  * @param {string} term 조회 조건값
- * @param {fn} cb 
+ * @param {Function} cb 콜백 함수
  */
 export function searchPlaces(term, cb = initCallback) {
   const language = actions.getLanguage();

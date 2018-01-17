@@ -5,8 +5,8 @@ import { FETCH_WEATHER, GET_LOCAL_WEATHER } from '../actions/weather';
 
 /**
  * 날씨 Reducer
- * @param {*} state 
- * @param {*} action 
+ * @param {State} state redux state 데이터
+ * @param {Action} action redux action 데이터
  */
 const initWeatherState = null;
 function weather(state = initWeatherState, action) {

@@ -2,8 +2,8 @@ import { GET_PLACE, CHANGE_PLACE, SELECT_PLACE, CREATE_PLACE } from '../actions/
 
 /**
  * 도시 Reducer
- * @param {*} state 
- * @param {*} action 
+ * @param {State} state redux state 데이터
+ * @param {Action} action redux action 데이터
  */
 const initPlaceState = null;
 function place(state = initPlaceState, action) {
