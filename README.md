@@ -18,7 +18,7 @@
 
 ### Server
 - Yahoo Weather API
-- Yahoo Query API
+- YQL API
 
 ### AWS
 - S3
